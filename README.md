@@ -47,7 +47,7 @@ epsilon=0.1
 |  ResNet18_30     |14.75%       | 38.92%      |  52.69%       | 72.17%            |
 |  ResNet18_60     |22.31%       | 19.39%      |  51.85%       | 70.13%            |
 |  MobileNetV2_30  |74.24%       | 86.92%      |  10.71%       | 18.72%            |
-|  MobileNetV2_60  |74.58%       | 86.98%      |               |  9.60%            |
+|  MobileNetV2_60  |74.58%       | 86.98%      |  11.13%       |  9.60%            |
 
 FGSM uses the gradients of the loss with respect to the input image to create a new image which maximises the loss for the specific net, it works very well only on this net but not the others.
 
