@@ -1,7 +1,7 @@
 # Attacking Deep Learning with Adversarial Examples #
 
 ## Introduction to Adversarial Examples ##
-AI technology based on deep learning is widely used today, which is very powerful tending to bring change to every aspects of our sociecty. Is there any method which can attack (or fool) our AI technology? actually, hackers can use adversarial examples to attack our AI system.  The adversarial examples is a input image which is intentionally designed to fool our models, but does not significantly interfere with the human eye. Specifically, adding imperceptible perturbations to the original input iamge does not cause any interference to the human eye, but DL model misclassify it as another object with high confidence. Imagine if the autonomous driving systems classify the red light sign as a bird (hacker's malicious attack), it could easily lead to a traffic accident.
+AI technology based on deep learning is widely used today, which is very powerful tending to bring change to every aspect of our society. Is there any method which can attack (or fool) our AI technology? actually, hackers can use adversarial examples to attack our AI system. The adversarial example is a input image which is intentionally designed to fool our models, but does not significantly interfere with the human eye. Specifically, adding imperceptible perturbations to the original input image does not cause any interference to the human eye, but DL model misclassify it as another object with high confidence. Imagine if the autonomous driving systems classify the red light sign as a bird (hacker's malicious attack), it could easily lead to a traffic accident.
 ## Minimum Requirements ##
  Requirement 1: Design at least two networks  
  Requirement 2: Train each net from two different initial weights.       
@@ -14,7 +14,7 @@ AI technology based on deep learning is widely used today, which is very powerfu
 > * NVIDIA GeForce GTX Titan X
 > * PyTorch 1.0.1
 ## Section 1: Adversarial Examples on MNIST ##
-### FGSM Attack  ###
+### FGSM Attack ###
 The fast gradient sign method, known as FGSM, was described by Goodfellow et. al. in [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572). FGSM works well by using the gradients of the neural network to create an adversarial example. For an input image, the method uses the gradients of the loss with respect to the input image to create a new image which maximises the loss. This new image is called the adversarial image. 
 
 ```
@@ -28,11 +28,11 @@ def fgsm_attack(image, epsilon, data_grad):
     return perturbed_image
     
 ```
-### Statistical Results for  Requirement 1~3 ###
+### Statistical Results for Requirement 1~3 ###
 
 epsilon=0.05
 
-|accurcy           | ResNet18_30 | ResNet18_60 |MobileNetV2_30 |MobileNetV2_60     | 
+|accuracy  | ResNet18_30 | ResNet18_60 |MobileNetV2_30 |MobileNetV2_60     | 
 |:----------------:|:-----------:|:-----------:|:-------------:|:-----------------:|
 |  ResNet18_30     | 41.27%      | 65.42%      |  88.09%       |   90.77%          |
 |  ResNet18_60     | 60.96%      | 40.28%      |  87.67%       |   90.48%          |
@@ -42,7 +42,7 @@ epsilon=0.05
 
 epsilon=0.1
 
-|accurcy           | ResNet18_30 | ResNet18_60 |MobileNetV2_30 |MobileNetV2_60     | 
+|accuracy          | ResNet18_30 | ResNet18_60 |MobileNetV2_30 |MobileNetV2_60     | 
 |:----------------:|:-----------:|:-----------:|:-------------:|:-----------------:|
 |  ResNet18_30     |14.75%       | 38.92%      |  52.69%       | 72.17%            |
 |  ResNet18_60     |22.31%       | 19.39%      |  51.85%       | 70.13%            |
@@ -53,7 +53,7 @@ FGSM uses the gradients of the loss with respect to the input image to create a 
 
 ### Statistical Results for Requirement 4 ###
 
-|nets            |epochs       |   epsilon    |accurcy after attack| nets        |epochs       |   epsilon    | accurcy after attack| 
+|nets            |epochs       |   epsilon    |accuracy after attack| nets        |epochs       |   epsilon    |accuracy after attack| 
 |:--------------:|:-----------:|:------------:|:---------------:|:--------------:|:-----------:|:------------:|:---------------:|
 |  ResNet18      |30           |0             |94.06%           | MobileNetV2    |30           |0             |93.56%           |
 |  ResNet18      |30           |0.05          |41.27%           | MobileNetV2    |30           |0.05          |11.99%           |
